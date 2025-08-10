@@ -33,7 +33,7 @@ class User(AbstractUser):
         (WRITER_OR_READER_USER, WRITER_OR_READER_NAME),
     )
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES,
-                                                 default=2,
+                                                 default=WRITER_OR_READER_USER,
                                                  )
     username = models.CharField(max_length=255,
                                 unique=True,
