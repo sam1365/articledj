@@ -1,5 +1,8 @@
 from django.urls import (path,
                          )
+from rest_framework_simplejwt.views import (TokenObtainPairView,
+                                            )
+
 
 from custom_auth.api.v1 import views
 app_name = 'custom_auth'
@@ -7,4 +10,5 @@ app_name = 'custom_auth'
 
 urlpatterns = [
     path('auth/github/', views.github_oauth_callback, name='github-oauth'),
+    path('auth/refresh/', TokenObtainPairView.as_view(), name='refresh-token'),
 ]
