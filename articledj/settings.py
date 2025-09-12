@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'social_django',
 
     'accounts.apps.AccountsConfig',
-    'auth.apps.AuthConfig',
+    'custom_auth.apps.CustomAuthConfig',
 ]
 
 MIDDLEWARE = [
@@ -159,3 +159,4 @@ SIMPLE_JWT = {
 SOCIAL_AUTH_GITHUB_KEY = env('GITHUB_CLIENT_ID')
 SOCIAL_AUTH_GITHUB_SECRET = env('GITHUB_CLIENT_SECRET')
 SOCIAL_AUTH_GITHUB_SCOPE = ['user:email']
+GITHUB_TIMEOUT = 10

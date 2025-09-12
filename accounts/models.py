@@ -15,6 +15,9 @@ class User(AbstractUser):
             - WRITER_OR_READER_USER (2): Standard user with limited permissions
         username (CharField): Optional username field.
         email (EmailField): Primary user identifier, used for authentication
+        github_username(CharField): GitHub username of the user.
+        github_id(CharField): GitHub id of the user.
+        github_profile_url(URLField): URL of the user's GitHub profile.
         is_verified (BooleanField): Flag indicating email verification status
         created_at (DateTimeField): Timestamp of user creation (auto-set)
         updated_at (DateTimeField): Timestamp of last update (auto-updated)
@@ -41,6 +44,10 @@ class User(AbstractUser):
                                 blank=True,
                                 db_index=True,
                                 )
+    github_username = models.CharField(max_length=100, null=True, blank=True)
+    github_id = models.CharField(max_length=100, unique=True, null=True, blank=True)
+    github_profile_url = models.URLField(null=True, blank=True)
+
     email = models.EmailField(max_length=255,
                               unique=True,
                               null=True,
