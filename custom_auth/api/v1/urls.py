@@ -11,4 +11,5 @@ app_name = 'custom_auth'
 urlpatterns = [
     path('auth/github/', views.github_oauth_callback, name='github-oauth'),
     path('auth/refresh/', TokenObtainPairView.as_view(), name='refresh-token'),
+    path('auth/logout/', views.logout, name='logout'),
 ]
